@@ -19,22 +19,40 @@ namespace gyak6
     {
         new BindingList<RateData> Rates = new BindingList<RateData>();
         public string result;
+        public string currency;
+        new BindingList<string> Currencies = new BindingList<string>();
         public Form1()
         {
+            InitializeComponent();
+            GetCurrencies();
             RefreshData();
         }
 
         private void RefreshData()
         {
             Rates.Clear();
-            InitializeComponent();
+            
             GetExchangeRates();
             XML();
             dataGridView1.DataSource = Rates;
             Diagram();
             chartRateData.DataSource = Rates;
+            comboBox1.DataSource = Currencies;
         }
-
+        private void GetCurrencies()
+        {
+            var mnbService = new MNBArfolyamServiceSoapClient();
+            var request = new GetCurrenciesRequestBody();
+            var response = mnbService.GetCurrencies(request);
+            var eredmeny = response.GetCurrenciesResult;
+            currency = eredmeny;
+            var xml = new XmlDocument();
+            xml.LoadXml(currency);
+            foreach (XmlElement element in xml.DocumentElement)
+            {
+                Currencies.Add(currency);
+            }
+        }
         private void GetExchangeRates()
         {
             var mnbService = new MNBArfolyamServiceSoapClient();
