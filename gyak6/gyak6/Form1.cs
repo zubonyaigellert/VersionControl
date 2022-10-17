@@ -10,6 +10,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
 
 namespace gyak6
@@ -24,6 +25,8 @@ namespace gyak6
             GetExchangeRates();
             XML();
             dataGridView1.DataSource = Rates;
+            Diagram();
+            chartRateData.DataSource = Rates;
         }
         private void GetExchangeRates()
         {
@@ -56,6 +59,22 @@ namespace gyak6
                     rate.Value = value / unit;
                 }
             }
+        }
+        private void Diagram()
+        {
+            var series = chartRateData.Series[0];
+            series.ChartType = SeriesChartType.Line;
+            series.XValueMember = "Date";
+            series.YValueMembers = "Value";
+            series.BorderWidth = 2;
+
+            var legend = chartRateData.Legends[0];
+            legend.Enabled = false;
+
+            var chartArea = chartRateData.ChartAreas[0];
+            chartArea.AxisX.MajorGrid.Enabled = false;
+            chartArea.AxisY.MajorGrid.Enabled = false;
+            chartArea.AxisY.IsStartedFromZero = false;
         }
     }
 
