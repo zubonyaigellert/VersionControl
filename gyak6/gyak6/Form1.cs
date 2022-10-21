@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -21,24 +22,27 @@ namespace gyak6
         public string result;
         public string currency;
         new BindingList<string> Currencies = new BindingList<string>();
+        
         public Form1()
         {
             InitializeComponent();
             GetCurrencies();
+            XML2();
+            comboBox1.DataSource = Currencies;
             RefreshData();
         }
 
         private void RefreshData()
         {
             Rates.Clear();
-            
             GetExchangeRates();
             XML();
             dataGridView1.DataSource = Rates;
             Diagram();
             chartRateData.DataSource = Rates;
-            comboBox1.DataSource = Currencies;
+            
         }
+        
         private void GetCurrencies()
         {
             var mnbService = new MNBArfolyamServiceSoapClient();
@@ -46,13 +50,8 @@ namespace gyak6
             var response = mnbService.GetCurrencies(request);
             var eredmeny = response.GetCurrenciesResult;
             currency = eredmeny;
-            var xml = new XmlDocument();
-            xml.LoadXml(currency);
-            foreach (XmlElement element in xml.DocumentElement)
-            {
-                Currencies.Add(currency);
-            }
         }
+        
         private void GetExchangeRates()
         {
             var mnbService = new MNBArfolyamServiceSoapClient();
@@ -76,6 +75,8 @@ namespace gyak6
                 Rates.Add(rate);
                 rate.Date = DateTime.Parse(element.GetAttribute("date"));
                 var childElement = (XmlElement)element.ChildNodes[0];
+                if (childElement == null)
+                    continue;
                 rate.Currency = childElement.GetAttribute("curr");
                 var unit = decimal.Parse(childElement.GetAttribute("unit"));
                 var value = decimal.Parse(childElement.InnerText);
@@ -83,6 +84,17 @@ namespace gyak6
                 {
                     rate.Value = value / unit;
                 }
+            }
+        }
+        private void XML2()
+        {
+            var xml = new XmlDocument();
+
+            xml.LoadXml(currency);
+            foreach (XmlElement element in xml.DocumentElement)
+            {
+                Currencies.Add(currency.ToString());
+
             }
         }
         private void Diagram()
