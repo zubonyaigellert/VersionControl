@@ -91,9 +91,11 @@ namespace gyak6
             var xml = new XmlDocument();
 
             xml.LoadXml(currency);
-            foreach (XmlElement element in xml.DocumentElement)
+
+            foreach (XmlElement element in xml.DocumentElement.ChildNodes[0])
             {
-                Currencies.Add(currency.ToString());
+                var currency = element.InnerText;
+                Currencies.Add(currency);
 
             }
         }
