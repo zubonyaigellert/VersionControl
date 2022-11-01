@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace ajandek.Entities
 {
-    public class Toy : Abstractions.Toy
+    public class Ball : Abstractions.Toy
     {
         protected override void DrawImage(Graphics g)
         {

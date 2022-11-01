@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ajandek.Entities
 {
-    public class IToyFactory : Abstractions.IToyFactory
+    public class BallFactory : IToyFactory
     {
-        public Abstractions.Toy CreateNew()
+        public Toy CreateNew()
         {
-            return new Toy();
+            return new Ball();
         }
     }
 }
