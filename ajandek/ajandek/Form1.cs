@@ -13,13 +13,10 @@ namespace ajandek
 {
     public partial class Form1 : Form
     {
-        private List<Toy> _toys = new List<Toy>();
-        private IToyFactory _factory;
         
         public Form1()
         {
             InitializeComponent();
-            Factory = new IToyFactory();
         }
         public IToyFactory Factory
         {
