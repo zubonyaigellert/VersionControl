@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace ajandek.Entities
 {
-    public class BallFactory : IToyFactory
-    {  
+    public class PresntFactory : IToyFactory
+    {
         public Toy CreateNew()
         {
-            return new Ball(BallColor);
+            return new Present(BoxColor);
         }
-        public Color BallColor { get; set; }
+        public Color BoxColor { get; set; }
     }
 }
