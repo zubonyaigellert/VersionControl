@@ -30,15 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.boxcolorbtn = new System.Windows.Forms.Button();
+            this.ribboncolorbtn = new System.Windows.Forms.Button();
+            this.presentbtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.ballbutton = new System.Windows.Forms.Button();
             this.carbutton = new System.Windows.Forms.Button();
             this.createTimer = new System.Windows.Forms.Timer(this.components);
             this.conveyorTimer = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.presentbtn = new System.Windows.Forms.Button();
-            this.ribboncolorbtn = new System.Windows.Forms.Button();
-            this.boxcolorbtn = new System.Windows.Forms.Button();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +56,45 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(800, 450);
             this.mainPanel.TabIndex = 0;
+            // 
+            // boxcolorbtn
+            // 
+            this.boxcolorbtn.BackColor = System.Drawing.Color.Lime;
+            this.boxcolorbtn.Location = new System.Drawing.Point(188, 128);
+            this.boxcolorbtn.Name = "boxcolorbtn";
+            this.boxcolorbtn.Size = new System.Drawing.Size(92, 24);
+            this.boxcolorbtn.TabIndex = 6;
+            this.boxcolorbtn.UseVisualStyleBackColor = false;
+            this.boxcolorbtn.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // ribboncolorbtn
+            // 
+            this.ribboncolorbtn.BackColor = System.Drawing.Color.Fuchsia;
+            this.ribboncolorbtn.Location = new System.Drawing.Point(188, 158);
+            this.ribboncolorbtn.Name = "ribboncolorbtn";
+            this.ribboncolorbtn.Size = new System.Drawing.Size(92, 24);
+            this.ribboncolorbtn.TabIndex = 5;
+            this.ribboncolorbtn.UseVisualStyleBackColor = false;
+            this.ribboncolorbtn.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // presentbtn
+            // 
+            this.presentbtn.Location = new System.Drawing.Point(191, 66);
+            this.presentbtn.Name = "presentbtn";
+            this.presentbtn.Size = new System.Drawing.Size(89, 55);
+            this.presentbtn.TabIndex = 4;
+            this.presentbtn.Text = "PRESENT";
+            this.presentbtn.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Blue;
+            this.button1.Location = new System.Drawing.Point(97, 128);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(85, 24);
+            this.button1.TabIndex = 3;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // label1
             // 
@@ -96,45 +135,6 @@
             this.conveyorTimer.Enabled = true;
             this.conveyorTimer.Interval = 10;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Blue;
-            this.button1.Location = new System.Drawing.Point(97, 128);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 24);
-            this.button1.TabIndex = 3;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // presentbtn
-            // 
-            this.presentbtn.Location = new System.Drawing.Point(191, 66);
-            this.presentbtn.Name = "presentbtn";
-            this.presentbtn.Size = new System.Drawing.Size(89, 55);
-            this.presentbtn.TabIndex = 4;
-            this.presentbtn.Text = "PRESENT";
-            this.presentbtn.UseVisualStyleBackColor = true;
-            // 
-            // ribboncolorbtn
-            // 
-            this.ribboncolorbtn.BackColor = System.Drawing.Color.Fuchsia;
-            this.ribboncolorbtn.Location = new System.Drawing.Point(188, 158);
-            this.ribboncolorbtn.Name = "ribboncolorbtn";
-            this.ribboncolorbtn.Size = new System.Drawing.Size(92, 24);
-            this.ribboncolorbtn.TabIndex = 5;
-            this.ribboncolorbtn.UseVisualStyleBackColor = false;
-            this.ribboncolorbtn.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // boxcolorbtn
-            // 
-            this.boxcolorbtn.BackColor = System.Drawing.Color.Lime;
-            this.boxcolorbtn.Location = new System.Drawing.Point(188, 128);
-            this.boxcolorbtn.Name = "boxcolorbtn";
-            this.boxcolorbtn.Size = new System.Drawing.Size(92, 24);
-            this.boxcolorbtn.TabIndex = 6;
-            this.boxcolorbtn.UseVisualStyleBackColor = false;
-            this.boxcolorbtn.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -150,10 +150,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel mainPanel;
-        private System.Windows.Forms.Timer createTimer;
-        private System.Windows.Forms.Timer conveyorTimer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ballbutton;
         private System.Windows.Forms.Button carbutton;
@@ -161,6 +157,9 @@
         private System.Windows.Forms.Button boxcolorbtn;
         private System.Windows.Forms.Button ribboncolorbtn;
         private System.Windows.Forms.Button presentbtn;
+        public System.Windows.Forms.Panel mainPanel;
+        public System.Windows.Forms.Timer createTimer;
+        public System.Windows.Forms.Timer conveyorTimer;
     }
 }
 
