@@ -28,36 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgwTick = new System.Windows.Forms.DataGridView();
+            this.dgwPortfolio = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTick)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwPortfolio)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgwTick
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(776, 426);
-            this.dataGridView1.TabIndex = 0;
+            this.dgwTick.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwTick.Location = new System.Drawing.Point(12, 12);
+            this.dgwTick.Name = "dgwTick";
+            this.dgwTick.RowHeadersWidth = 51;
+            this.dgwTick.RowTemplate.Height = 24;
+            this.dgwTick.Size = new System.Drawing.Size(379, 426);
+            this.dgwTick.TabIndex = 0;
+            // 
+            // dgwPortfolio
+            // 
+            this.dgwPortfolio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwPortfolio.Location = new System.Drawing.Point(397, 12);
+            this.dgwPortfolio.Name = "dgwPortfolio";
+            this.dgwPortfolio.RowHeadersWidth = 51;
+            this.dgwPortfolio.RowTemplate.Height = 24;
+            this.dgwPortfolio.Size = new System.Drawing.Size(391, 426);
+            this.dgwPortfolio.TabIndex = 1;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgwPortfolio);
+            this.Controls.Add(this.dgwTick);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTick)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwPortfolio)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgwTick;
+        private System.Windows.Forms.DataGridView dgwPortfolio;
     }
 }
 
