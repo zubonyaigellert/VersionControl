@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,6 +62,21 @@ namespace week07
                 value += (decimal)last.Price * item.Volume;
             }
             return value;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
+            using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName, false, Encoding.UTF8))
+            {
+                sw.WriteLine("  Időszak Nyereség");
+                for(int i = 0; i < Ticks.Count(); i++)
+                {
+                    sw.WriteLine(Ticks[i].Tick_id + " " + Ticks[i].TradingDay + " " + Ticks[i].Price);
+                }
+            }
         }
     }
 }
