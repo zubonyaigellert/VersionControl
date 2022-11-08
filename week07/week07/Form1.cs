@@ -66,16 +66,33 @@ namespace week07
 
         private void button1_Click(object sender, EventArgs e)
         {
+            List<decimal> Nyereségek = new List<decimal>();
+            int intervalum = 30;
+            DateTime kezdőDátum = (from x in Ticks select x.TradingDay).Min();
+            DateTime záróDátum = new DateTime(2016, 12, 30);
+            TimeSpan z = záróDátum - kezdőDátum;
+            for (int i = 0; i < z.Days - intervalum; i++)
+            {
+                decimal ny = GetPortfolioValue(kezdőDátum.AddDays(i + intervalum))
+                           - GetPortfolioValue(kezdőDátum.AddDays(i));
+                Nyereségek.Add(ny);
+                
+            }
+
+            var nyereségekRendezve = (from x in Nyereségek
+                                      orderby x
+                                      select x)
+                                        .ToList();
             
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             if (saveFileDialog.ShowDialog() != DialogResult.OK) return;
             using (StreamWriter sw = new StreamWriter(saveFileDialog.FileName, false, Encoding.UTF8))
             {
                 sw.WriteLine("  Időszak Nyereség");
-                for(int i = 0; i < Ticks.Count(); i++)
+                for(int i = 0; i < nyereségekRendezve.Count; i++)
                 {
-                    sw.WriteLine(Ticks[i].Tick_id + " " + Ticks[i].TradingDay + " " + Ticks[i].Price);
-                }
+                    sw.WriteLine(i+" "+ kezdőDátum +"-"+ záróDátum + " "+nyereségekRendezve[i]);
+                } 
             }
         }
     }
