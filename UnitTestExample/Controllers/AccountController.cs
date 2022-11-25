@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using UnitTestExample.Abstractions;
 using UnitTestExample.Entities;
 using UnitTestExample.Services;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace UnitTestExample.Controllers
 {
@@ -50,7 +51,9 @@ namespace UnitTestExample.Controllers
 
         public bool ValidatePassword(string password)
         {
-            return true;
+            return Regex.IsMatch(
+                password,
+                @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$");
         }
     }
 }
