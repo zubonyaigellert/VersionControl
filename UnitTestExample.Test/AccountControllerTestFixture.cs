@@ -28,13 +28,14 @@ namespace UnitTestExample.Test
             var actualResult = accountController.ValidateEmail(email);
             Assert.AreEqual(expectedResult, actualResult);
         }
-            [Test,
+        [
+            Test,
             TestCase("asdfASDF",false),
             TestCase("ASDF1234", false),
             TestCase("asdf1234", false),
             TestCase("asd123", false), 
             TestCase("Asdf1234", true),
-            ]
+        ]
         public void TestValidatePassword(string password, bool expectedResult)
         {
             var accountController = new AccountController();
@@ -57,7 +58,7 @@ namespace UnitTestExample.Test
             var actualResult = accountController.Register(email, password);
             Assert.AreEqual(email, actualResult.Email);
             Assert.AreEqual(password, actualResult.Password);
-            Assert.AreNotEqual(Guid.Empty, actualResult.ID);
+            Assert.AreEqual(Guid.Empty, actualResult.ID);
             accountServiceMock.Verify(m => m.CreateAccount(actualResult), Times.Once);
         }
         [
