@@ -114,7 +114,7 @@ namespace mikroszimulacio
         }
         private void Simulation()
         {
-            for (int year = 2005; year <= 2024; year++)
+            for (int year = 2005; year <= numericUpDown1.Value; year++)
             {
                 for (int i = 0; i < Population.Count; i++)
                 {
@@ -152,7 +152,10 @@ namespace mikroszimulacio
         }
         private void DisplayResults()
         {
-
+            for(int i = 0; i < numericUpDown1.Value-2005; i++)
+            {
+                richTextBox1.Text = ("Szimulációs év: {0}\n\tFiúk: {1}\n\tLányok: {2}\n\n", i + 2005, NumberOfMales[i], NumberOfFeamles[i]);
+            }
         }
     }
 }
