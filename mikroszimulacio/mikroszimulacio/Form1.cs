@@ -17,6 +17,7 @@ namespace mikroszimulacio
         List<Person> Population = new List<Person>();
         List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
+        Random rng = new Random(4444);
         public Form1()
         {
             InitializeComponent();
