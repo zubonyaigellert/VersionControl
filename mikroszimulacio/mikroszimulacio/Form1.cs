@@ -23,9 +23,7 @@ namespace mikroszimulacio
         public Form1()
         {
             InitializeComponent();
-            Population = GetPopulation(textBox1.Text);
-            BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
-            DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
+           
             
         }
         public List<Person> GetPopulation(string csvpath)
@@ -137,6 +135,9 @@ namespace mikroszimulacio
             richTextBox1.Clear();
             NumberOfMales.Clear();
             NumberOfFeamles.Clear();
+            Population = GetPopulation(textBox1.Text);
+            BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
+            DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
             Simulation();
             DisplayResults();
         }
@@ -154,7 +155,7 @@ namespace mikroszimulacio
         {
             for(int i = 0; i < numericUpDown1.Value-2005; i++)
             {
-                richTextBox1.Text = ("Szimulációs év: {0}\n\tFiúk: {1}\n\tLányok: {2}\n\n", i + 2005, NumberOfMales[i], NumberOfFeamles[i]);
+                richTextBox1.Text = String.Format("Szimulációs év: {0}\n\tFiúk: {1}\n\tLányok: {2}\n\n", i + 2005, NumberOfMales[i], NumberOfFeamles[i]);
             }
         }
     }
