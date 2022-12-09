@@ -24,7 +24,7 @@ namespace Worldshardestgamev2
         public Form1()
         {
             InitializeComponent();
-
+            Dock = DockStyle.Fill;
             ga = gc.ActivateDisplay();
             this.Controls.Add(ga);
             gc.GameOver += Gc_GameOver;
@@ -49,6 +49,7 @@ namespace Worldshardestgamev2
                           select p;
             if (winners.Count() > 0)
             {
+                button1.Visible = true;
                 winnerBrain = winners.FirstOrDefault().Brain.Clone();
                 gc.GameOver -= Gc_GameOver;
                 return;
@@ -68,6 +69,15 @@ namespace Worldshardestgamev2
                     gc.AddPlayer(b.Mutate());
             }
             gc.Start();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            gc.ResetCurrentLevel();
+            gc.AddPlayer(winnerBrain.Clone());
+            gc.AddPlayer();
+            ga.Focus();
+            gc.Start(true);
         }
     }
 }
