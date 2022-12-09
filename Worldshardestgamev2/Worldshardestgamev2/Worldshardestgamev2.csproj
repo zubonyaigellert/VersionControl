@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F97773F0-70B4-4933-9F54-B83F68DB401A}</ProjectGuid>
+    <ProjectGuid>{B413D862-D0FF-4523-AC6D-7BF0A5230B49}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>worldshardestgame</RootNamespace>
-    <AssemblyName>worldshardestgame</AssemblyName>
+    <RootNamespace>Worldshardestgamev2</RootNamespace>
+    <AssemblyName>Worldshardestgamev2</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

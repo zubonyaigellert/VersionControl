@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WorldsHardestGame;
 
-namespace worldshardestgame
+namespace Worldshardestgamev2
 {
     public partial class Form1 : Form
     {
@@ -19,10 +19,10 @@ namespace worldshardestgame
         public Form1()
         {
             InitializeComponent();
+
             ga = gc.ActivateDisplay();
             this.Controls.Add(ga);
-            gc.AddPlayer();
-            gc.Start(true);
+            
         }
     }
 }
